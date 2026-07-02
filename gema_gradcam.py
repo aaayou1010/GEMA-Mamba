@@ -11,8 +11,7 @@ from torchvision import models
 import matplotlib.pyplot as plt
 
 class ActivationsAndGradients:
-    """ Class for extracting activations and
-    registering gradients from targeted intermediate layers """
+
 
     def __init__(self, model, target_layers, reshape_transform):
         self.model = model
@@ -128,7 +127,7 @@ class GradCAM:
         return result
 
     def __call__(self, input_tensor, target_category=None):
-        # 正向传播得到网络输出logits(未经过softmax)
+
         self.activations_and_grads(input_tensor)
         output = self.model(input_tensor)
 
@@ -164,14 +163,7 @@ def show_cam_on_image(img: np.ndarray,
                       mask: np.ndarray,
                       use_rgb: bool = False,
                       colormap: int = cv2.COLORMAP_JET) -> np.ndarray:
-    """ This function overlays the cam mask on the image as an heatmap.
-    By default the heatmap is in BGR format.
-    :param img: The base image in RGB or BGR format.
-    :param mask: The cam mask.
-    :param use_rgb: Whether to use an RGB or BGR heatmap, this should be set to True if 'img' is in RGB format.
-    :param colormap: The OpenCV colormap to be used.
-    :returns: The default image with the cam overlay.
-    """
+
 
     heatmap = cv2.applyColorMap(np.uint8(255 * mask), colormap)
     if use_rgb:
