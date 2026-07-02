@@ -34,13 +34,13 @@ Useful preparation scripts:
 Run training with:
 
 ```bash
-python train.py --datasets_name <dataset_name> --epochs 1000 --batch_size 36 --work_dir <output_dir>
+python train.py --datasets_name <dataset_name> --epochs 300 --batch_size 16 --work_dir <output_dir>
 ```
 
 Example:
 
 ```bash
-python train.py --datasets_name isic2018 --epochs 500 --batch_size 24 --work_dir ./outputs/isic2018
+python train.py --datasets_name isic2018 --epochs 300 --batch_size 16 --work_dir ./outputs/isic2018
 ```
 
 ## Evaluation
@@ -48,21 +48,13 @@ python train.py --datasets_name isic2018 --epochs 500 --batch_size 24 --work_dir
 Run evaluation with:
 
 ```bash
-python test.py --datasets_name <dataset_name> --batch_size 36 --work_dir <output_dir> --best_model_path <checkpoint_path>
+python test.py --datasets_name <dataset_name> --batch_size 16 --work_dir <output_dir> --best_model_path <checkpoint_path>
 ```
-
-## Inference and Export
-
-Useful scripts for inference and result export:
-
-- `infer_lidc.py`
-- `export_testset_itksnap.py`
-- `test_Monu.py`
 
 ## Project Structure
 
 ```text
-models/GEMAMamba/     model definitions
+GEMAMamba/     model definitions
 train.py              training entry
 test.py               evaluation entry
 gema_engine.py        training and validation loops
