@@ -17,9 +17,7 @@ def train_one_epoch_isic(train_loader,
                          logger,
                          config,
                          scaler=None):
-    '''
-    train model for one epoch
-    '''
+
     # switch to train mode
     model.train()
 
@@ -102,10 +100,7 @@ def val_one_epoch(test_loader,
     # print(log_info)
     logger.info(log_info)
 
-    # else:
-    #     log_info = f'val epoch: {epoch}, loss: {np.mean(loss_list):.4f}'
-    #     print(log_info)
-    #     logger.info(log_info)
+
 
     return np.mean(loss_list)
 
@@ -244,9 +239,7 @@ def train_one_epoch_sy_ac(train_loader,
                           logger,
                           config,
                           scaler=None):
-    '''
-    train model for one epoch
-    '''
+
     stime = time.time()
     model.train()
 
