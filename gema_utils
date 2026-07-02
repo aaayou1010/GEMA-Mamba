@@ -46,11 +46,6 @@ def set_seed(seed):
 
 
 def get_logger(name, log_dir):
-    '''
-    Args:
-        name(str): name of logger
-        log_dir(str): path of log
-    '''
 
     if not os.path.exists(log_dir):
         os.makedirs(log_dir)
@@ -552,14 +547,14 @@ class myNormalize:
         return img_normalized, msk
 
 
-from thop import profile  ## 导入thop模块
+from thop import profile  
 
 
 def cal_params_flops(model, size, logger):
     input = torch.randn(1, 3, size, size).cuda()
     flops, params = profile(model, inputs=(input,))
-    print('flops', flops / 1e9)  ## 打印计算量
-    print('params', params / 1e6)  ## 打印参数量
+    print('flops', flops / 1e9)  
+    print('params', params / 1e6)  
 
     total = sum(p.numel() for p in model.parameters())
     print("Total params: %.2fM" % (total / 1e6))
@@ -600,13 +595,12 @@ class WeightedBCE(nn.Module):
         truth = truth_pixel.view(-1)
         assert (logit.shape == truth.shape)
 
-        # 计算正负样本的权重
+
         pos_weight = (truth > 0.5).float().sum() + 1e-12
         neg_weight = (truth < 0.5).float().sum() + 1e-12
         pos_weight_tensor = torch.tensor(self.weights[0] / pos_weight).to(logit.device)
         neg_weight_tensor = torch.tensor(self.weights[1] / neg_weight).to(logit.device)
 
-        # 使用 BCEWithLogitsLoss 并通过 pos_weight 参数来实现加权
         criterion = nn.BCEWithLogitsLoss(pos_weight=pos_weight_tensor / neg_weight_tensor)
         loss = criterion(logit, truth)
 
