@@ -73,7 +73,7 @@ gema_gradcam.py       Grad-CAM utilities
 ## Acknowledgement
 
 This project is built with inspiration from:
-
+- [EccoMamba](https://github.com/JincanL/EccoMamba)
 - [VMamba](https://github.com/MzeroMiko/VMamba)
 - [VM-UNet](https://github.com/JCruan519/VM-UNet)
 - [Swin-Unet](https://github.com/HuCaoFighting/Swin-Unet)
