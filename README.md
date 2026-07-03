@@ -54,7 +54,7 @@ python test.py --datasets_name <dataset_name> --batch_size 16 --work_dir <output
 ## Project Structure
 
 ```text
-GEMAMamba/     model definitions
+GEMAMamba/            model definitions
 train.py              training entry
 test.py               evaluation entry
 gema_engine.py        training and validation loops
