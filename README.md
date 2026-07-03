@@ -26,8 +26,8 @@ This project includes scripts for multiple medical image segmentation datasets, 
 Useful preparation scripts:
 
 - `prepare_isic.py`
-- `prepare_lid.py`
-- `convert_acdc.py`
+- `prepare_lidc.py`
+- `prepare_acdc.py`
 
 ## Training
 
